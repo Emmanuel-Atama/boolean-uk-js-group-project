@@ -28,10 +28,7 @@ function fetchImageOfTheDay() {
     .then((res) => res.json())
     .then((imageData) => {
       console.log("Inside GET Fetch Image: ", imageData);
-      // stateData = {
-      //   ...stateData,
-      //   imageOfTheDay: imageData
-      // };
+      renderLeftAsideImage(imageData);
     });
 }
 fetchImageOfTheDay();
@@ -43,7 +40,6 @@ function renderHeaderSection(heads) {
   const headerEl = document.createElement("header");
   headerEl.className = "main-header grid-auto-columns";
   bodyEl.append(headerEl);
-
 
   const headerImageEl = document.createElement("img");
   headerImageEl.src =
@@ -77,13 +73,26 @@ function renderHeaderSection(heads) {
   }
 }
 
-function renderLeftAsideImage() {
+function renderLeftAsideImage(image) {
 const bodyEl = document.querySelector("body")
 
   const mainEl = document.createElement("main")
   bodyEl.append(mainEl)
+
+const asideEl = document.createElement("aside")
+asideEl.className = "left-aside image-of-the-day"
+mainEl.append(asideEl)
+
+const asideTitleEl = document.createElement("h1")
+asideTitleEl.innerText = "Image of The Day"
+asideEl.append(asideTitleEl)
+  const asideImageEl = document.createElement("img")
+  asideImageEl.src = image.imageData
+  asideImageEl.alt = "Image of The Day"
+  asideEl.append(asideImageEl)
+
 }
-renderLeftAsideImage();
+// renderLeftAsideImage();
 
 function renderListOfExpedition() {}
 renderListOfExpedition();

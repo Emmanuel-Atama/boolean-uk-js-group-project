@@ -71,10 +71,7 @@ li:hover {
   padding: 4px;
   background-color: yellow;
 }
-.text-align {
-  /* text-align: center; */
-  display: grid;
-}
+
 .image-of-the-day img {
   width: 100%;
   height: 30rem;
