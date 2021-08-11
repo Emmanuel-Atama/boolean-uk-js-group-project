@@ -1,0 +1,4 @@
+{
+  "/bookings": "/bookings?_expand=expedition",
+  "/bookings/*": "/bookings/$1?_expand=expedition"
+}

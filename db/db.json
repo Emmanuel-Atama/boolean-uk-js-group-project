@@ -1,0 +1,80 @@
+{
+  "expeditions": [
+    {
+      "id": 1,
+      "location": "Mars",
+      "type": "Extraterrestrial",
+      "price": 690000,
+      "src": "https://unsplash.com/photos/kGtFjYdm7DI"
+    },
+    {
+      "id": 2,
+      "location": "Venus",
+      "type": "Extraterrestrial",
+      "price": 690000,
+      "src": "https://unsplash.com/photos/2W-QWAC0mI"
+    },
+    {
+      "id": 3,
+      "location": "Earth",
+      "type": "Terrestrial",
+      "price": 690000,
+      "src": "https://unsplash.com/photos/oMpAz-DN-9I"
+    },
+    {
+      "id": 4,
+      "location": "Mecury",
+      "type": "Extraterrestrial",
+      "price": 590000,
+      "src": "https://unsplash.com/photos/N3BQHYOVq5E"
+    },
+    {
+      "id": 5,
+      "location": "Jupiter",
+      "type": "Extraterrestrial",
+      "price": 890000,
+      "src": "https://cdn.spacetelescope.org/archives/images/screen/heic2017a.jpg"
+    },
+    {
+      "id": 6,
+      "location": "Saturn",
+      "type": "Extraterrestrial",
+      "price": 790000,
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1920px-Saturn_during_Equinox.jpg"
+    },
+    {
+      "id": 7,
+      "location": "Uranus",
+      "type": "Extraterrestrial",
+      "price": 990000,
+      "src": "https://unsplash.com/photos/Li41RApUAQA"
+    },
+    {
+      "id": 8,
+      "location": "Sun",
+      "type": "Extraterrestrial",
+      "price": 990000,
+      "src": "https://unsplash.com/photos/EwawqhV2Doc"
+    },
+    {
+      "id": 9,
+      "location": "Under the sea",
+      "type": "Terrestrial",
+      "price": 9900,
+      "src": "https://unsplash.com/photos/3leBubkp5hk"
+    },
+    {
+      "id": 10,
+      "location": "Moon",
+      "type": "Extraterrestrial",
+      "price": 900900,
+      "src": "https://unsplash.com/photos/pd4lo70LdbI"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "expeditionId": 1
+    }
+  ]
+}
