@@ -113,10 +113,22 @@ function renderListOfExpedition() {
   // console.log("Inside main: ", mainEl)
 
 const containerEl = document.createElement("div")
-  containerEl.className = "main-section responsive-grid"
+  containerEl.className = "main-section"
   mainEl.append(containerEl)
    
 const listEl = document.createElement("ul")
+listEl.className = "responsive-grid"
+ containerEl.append(listEl)
+
+ const listItemEl = document.createElement("li")
+ listEl.append(listItemEl)
+
+ const listImageEl = document.createElement("img")
+ listEl.append(listImageEl)
+
+ const listTitleEl = document.createElement("h3")
+ listTitleEl.innerText = location
+ listEl.append(listTitleEl)
 
 
 }
