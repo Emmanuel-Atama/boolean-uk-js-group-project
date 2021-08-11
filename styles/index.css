@@ -14,7 +14,7 @@ body {
 
 header img {
   width: 100%;
-  height: auto;
+  height: 50%;
   margin-top: auto;
   margin-bottom: auto;
   
@@ -24,8 +24,11 @@ header img {
   padding: 1rem;
   text-align: center;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   border-radius: 2rem;
-  font-size: 3.5rem;
+  font-size: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 nav h3 {
  margin: 1rem;

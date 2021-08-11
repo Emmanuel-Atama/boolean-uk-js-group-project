@@ -22,19 +22,19 @@ function fetchListSection() {
 } 
 fetchListSection();
 
-// function fetchImageOfTheDay() {
-//   const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((imageData) => {
-//       console.log("Inside GET Fetch Image: ", imageData);
-//       // stateData = {
-//       //   ...stateData,
-//       //   imageOfTheDay: imageData
-//       // };
-//     });
-// }
-// fetchImageOfTheDay();
+function fetchImageOfTheDay() {
+  const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+  fetch(url)
+    .then((res) => res.json())
+    .then((imageData) => {
+      console.log("Inside GET Fetch Image: ", imageData);
+      // stateData = {
+      //   ...stateData,
+      //   imageOfTheDay: imageData
+      // };
+    });
+}
+fetchImageOfTheDay();
 
 function renderHeaderSection(heads) {
   const bodyEl = document.querySelector("body");
@@ -77,8 +77,12 @@ function renderHeaderSection(heads) {
   }
 }
 
+function renderLeftAsideImage() {
+const bodyEl = document.querySelector("body")
 
-function renderLeftAsideImage() {}
+  const mainEl = document.createElement("main")
+  bodyEl.append(mainEl)
+}
 renderLeftAsideImage();
 
 function renderListOfExpedition() {}
