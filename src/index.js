@@ -82,7 +82,7 @@ function renderLeftAside () {
   filterFormEl.append(filterLabelEl);
 
   const filterh3El = document.createElement("h3");
-  filterh3El.innerText = "Type of Planet";
+  filterh3El.innerText = "Type of Planet & Price";
   filterLabelEl.append(filterh3El);
 
   const filterSelectEl = document.createElement("select");
@@ -115,6 +115,10 @@ function renderListOfExpedition() {
 const containerEl = document.createElement("div")
   containerEl.className = "main-section responsive-grid"
   mainEl.append(containerEl)
+   
+const listEl = document.createElement("ul")
+
+
 }
 renderListOfExpedition();
 

@@ -83,8 +83,8 @@ main {
   gap: 1rem;
 }
 .left-aside{
-  border: 2px dotted black;
-  height: 100vh;
+  border: 2px solid black;
+  height: auto
 }
 .main-section{
   border: 2px dotted black;
