@@ -72,17 +72,62 @@ li:hover {
   background-color: yellow;
 }
 
-.image-of-the-day img {
-  width: 100%;
-  height: 30rem;
-}
 main {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 0.5fr;
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 1rem;
 }
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+}
+.left-aside{
+  border: 2px dotted black;
+  height: 100vh;
+}
+.main-section{
+  border: 2px dotted black;
+  height: 100vh;
+}
+.right-aside{
+  border: 2px dotted black;
+  height: 100vh;
+}
+.filters-section {
+  grid-area: sidebar;
+  padding-left: 1rem;
+}
+
+.filters-section h2 {
+  padding: 1rem;
+
+  border-radius: 0.25rem 0.25rem 0 0;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+.filters-section h3 {
+  color: #424242;
+  font-size: 1rem;
+}
+
+.filter-by-city-heading {
+  padding: 1rem 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+#filter-by-type-form {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+#filter-by-type-form label {
+  font-weight: bold;
 }

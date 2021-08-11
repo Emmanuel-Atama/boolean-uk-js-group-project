@@ -22,24 +22,12 @@ function fetchListSection() {
 } 
 fetchListSection();
 
-function fetchImageOfTheDay() {
-  const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
-  fetch(url)
-    .then((res) => res.json())
-    .then((imageData) => {
-      console.log("Inside GET Fetch Image: ", imageData);
-      renderLeftAsideImage(imageData);
-    });
-}
-fetchImageOfTheDay();
+const bodyEl = document.querySelector("body")
+console.log("Inside body: ", bodyEl)
 
 function renderHeaderSection(heads) {
-  const bodyEl = document.querySelector("body");
-  console.log("Body: ", bodyEl);
-
-  const headerEl = document.createElement("header");
-  headerEl.className = "main-header grid-auto-columns";
-  bodyEl.append(headerEl);
+  const headerEl = document.querySelector(".main-header");
+  // console.log("Inside header: ", headerEl)
 
   const headerImageEl = document.createElement("img");
   headerImageEl.src =
@@ -73,26 +61,69 @@ function renderHeaderSection(heads) {
   }
 }
 
-function renderLeftAsideImage(image) {
-const bodyEl = document.querySelector("body")
+function renderLeftAside () {
+  const mainEl = document.querySelector(".main-section")
 
-  const mainEl = document.createElement("main")
-  bodyEl.append(mainEl)
+  const leftAsideEl = document.createElement("aside")
+  leftAsideEl.className = "left-aside"
+  mainEl.append(leftAsideEl)
 
-const asideEl = document.createElement("aside")
-asideEl.className = "left-aside image-of-the-day"
-mainEl.append(asideEl)
+  const h2El = document.createElement("h2");
+  h2El.innerText = "Filter By";
+  leftAsideEl.append(h2El);
 
-const asideTitleEl = document.createElement("h1")
-asideTitleEl.innerText = "Image of The Day"
-asideEl.append(asideTitleEl)
-  const asideImageEl = document.createElement("img")
-  asideImageEl.src = image.imageData
-  asideImageEl.alt = "Image of The Day"
-  asideEl.append(asideImageEl)
+  const filterFormEl = document.createElement("form");
+  filterFormEl.id = "filter-by-type-form";
+  filterFormEl.autocomplete = "off";
+  leftAsideEl.append(filterFormEl);
+
+  const filterLabelEl = document.createElement("label");
+  filterLabelEl.for = "filter-by-type";
+  filterFormEl.append(filterLabelEl);
+
+  const filterh3El = document.createElement("h3");
+  filterh3El.innerText = "Type of Planet";
+  filterLabelEl.append(filterh3El);
+
+  const filterSelectEl = document.createElement("select");
+  filterSelectEl.name = "filter-by-type";
+  filterSelectEl.id = "filter-by-type";
+  filterFormEl.append(filterSelectEl);
+
+  const optionEl1 = document.createElement("option");
+  optionEl1.value = "";
+  optionEl1.innerText = "Select a type...";
+  filterSelectEl.append(optionEl1);
+
+  const optionEl2 = document.createElement("option");
+  optionEl2.value = "type";
+  optionEl2.innerText = "Type";
+  filterSelectEl.append(optionEl2);
+
+  const optionEl3 = document.createElement("option");
+  optionEl3.value = "price";
+  optionEl3.innerText = "Price";
+  filterSelectEl.append(optionEl3);
 
 }
-// renderLeftAsideImage();
+renderLeftAside()
 
-function renderListOfExpedition() {}
+function renderListOfExpedition() {
+  const mainEl = document.querySelector(".main-section")
+  // console.log("Inside main: ", mainEl)
+
+const containerEl = document.createElement("div")
+  containerEl.className = "main-section responsive-grid"
+  mainEl.append(containerEl)
+}
 renderListOfExpedition();
+
+
+function renderRightAside () {
+  const mainEl = document.querySelector(".main-section")
+
+  const rightAsideEl = document.createElement("aside")
+  rightAsideEl.className = "right-aside"
+  mainEl.append(rightAsideEl)
+}
+renderRightAside()
