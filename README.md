@@ -1,6 +1,5 @@
 # boolean-uk-js-group-project
 
-boolean-uk-js-group-project
 User should be able to view the home page
 Homepage Icon
 Photo of the day
