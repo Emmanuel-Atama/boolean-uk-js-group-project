@@ -10,6 +10,13 @@ body {
 .two-column-grid {
   display: grid;
   grid-template-columns: auto auto;
+  gap: 8px;
+}
+
+.three-column-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 0.5rem;
 }
 
 header img {
@@ -52,6 +59,7 @@ nav li {
 }
 ul {
   list-style-type: none;
+  padding: 1rem;
 }
 nav h3 {
   font-size: 2rem;
@@ -59,12 +67,12 @@ nav h3 {
   height: auto;
   text-align: center;
 }
-li a {
+.header-list a {
   text-decoration: none;
   color: brown;
   font-size: 1.6rem;
 }
-li:hover {
+.header-list:hover {
   border: 4px dotted yellowgreen;
   width: auto;
   height: auto;
@@ -72,8 +80,10 @@ li:hover {
   background-color: yellow;
 }
 
-main {
+.grid-container {
   display: grid;
+  min-height: 100vh;
+  border: 4px solid orangered;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 1rem;
 }
@@ -82,18 +92,16 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
-.left-aside{
-  border: 2px solid black;
-  height: auto
+/* .left-aside {
+  border: 2px dotted blue;
 }
-.main-section{
-  border: 2px dotted black;
-  height: 100vh;
+.center-section {
+  border: 2px dotted yellow;
+ 
 }
-.right-aside{
-  border: 2px dotted black;
-  height: 100vh;
-}
+.right-aside {
+  border: 2px dotted coral;
+} */
 .filters-section {
   grid-area: sidebar;
   padding-left: 1rem;
@@ -130,4 +138,35 @@ main {
 
 #filter-by-type-form label {
   font-weight: bold;
+}
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.list-space{
+  padding-top: 2rem;
 }
