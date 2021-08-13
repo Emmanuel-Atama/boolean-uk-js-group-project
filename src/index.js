@@ -3,7 +3,6 @@ let stateData = {
   filters: {
     type: "",
     price: null,
-    number: null
   }
 };
 
@@ -17,8 +16,11 @@ function fetchListSection() {
         ...stateData,
         expedition: expeditions
       };
-      renderHeaderSection(expeditions);
-      renderListOfExpedition(expeditions);
+    
+    //  console.log( stateData.expedition);
+      renderHeaderSection(stateData.expedition);
+      renderListOfExpedition(stateData.expedition);
+
     });
 }
 fetchListSection();
@@ -80,37 +82,70 @@ function renderLeftAside() {
   filterFormEl.append(filterLabelEl);
 
   const filterh3El = document.createElement("h3");
-  filterh3El.innerText = "Type of Planet & Price";
+  filterh3El.innerText = "Select the type of your trip";
   filterLabelEl.append(filterh3El);
 
   const filterSelectEl = document.createElement("select");
   filterSelectEl.name = "filter-by-type";
   filterSelectEl.id = "filter-by-type";
+ 
+  //AddEventListener
+
+  filterSelectEl.addEventListener("change", (event) => {
+    const filteredValue = event.target.value;
+
+    stateData = {
+      ...stateData,
+      filters: {
+        ...stateData.filters,
+        type: filteredValue
+
+      }
+    };
+
+    const filterbyType = stateData.filters.type;
+    let filteredByType = stateData.expedition;
+
+    filteredByType = stateData.expedition.filter(
+      (expedition) => expedition["type"] === filterbyType
+    );
+
+    console.log(filteredByType);
+    renderListOfExpedition(filteredByType);
+
+  });
+
   filterFormEl.append(filterSelectEl);
+
 
   const optionEl1 = document.createElement("option");
   optionEl1.value = "";
-  optionEl1.innerText = "Select a type...";
+  optionEl1.innerText = "Select type";
   filterSelectEl.append(optionEl1);
 
   const optionEl2 = document.createElement("option");
-  optionEl2.value = "type";
-  optionEl2.innerText = "Type";
+  optionEl2.value = "Terrestrial";
+    optionEl2.innerText = "Terrestrial";
   filterSelectEl.append(optionEl2);
 
   const optionEl3 = document.createElement("option");
-  optionEl3.value = "price";
-  optionEl3.innerText = "Price";
+  optionEl3.value = "Extraterrestrial";
+  optionEl3.innerText = "Extraterrestrial";
   filterSelectEl.append(optionEl3);
 }
 renderLeftAside();
 
 function renderListOfExpedition(planets) {
+
   const mainEl = document.querySelector(".center-section");
   // console.log("Inside main: ", mainContainerEl)
 
+  mainEl.innerHTML = "";
+
   const listEl = document.createElement("ul");
+  
   // listEl.className = "responsive-grid"
+
   mainEl.append(listEl);
   for (let i = 0; i < planets.length; i++) {
     const planet = planets[i];
@@ -119,7 +154,7 @@ function renderListOfExpedition(planets) {
 
     listEl.append(listItemEl);
 
-    const imageSrc = planet.src;
+    // const imageSrc = planet.src;
 
     const listImageEl = document.createElement("img");
     listImageEl.setAttribute("width", "100%");
@@ -128,7 +163,7 @@ function renderListOfExpedition(planets) {
     listItemEl.append(listImageEl);
 
     const listItemContainerEl = document.createElement("div");
-    listItemContainerEl.className = "three-column-grid";
+    listItemContainerEl.className = "four-column-grid";
     listItemEl.append(listItemContainerEl);
 
     const listTitleEl = document.createElement("h3");
@@ -136,8 +171,12 @@ function renderListOfExpedition(planets) {
     listItemContainerEl.append(listTitleEl);
 
     const listParagraphEl = document.createElement("p");
-    listParagraphEl.innerText = `Price: ${planet.price}`;
+    listParagraphEl.innerText = `${planet.price}$`;
     listItemContainerEl.append(listParagraphEl);
+
+    const typeEl = document.createElement("p");
+    typeEl.innerText = `${planet.type}`;
+    listItemContainerEl.append(typeEl);
 
     const listButtonEl = document.createElement("button");
     listButtonEl.innerText = "Book Now";
