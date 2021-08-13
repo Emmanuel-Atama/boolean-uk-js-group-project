@@ -64,11 +64,7 @@ function renderHeaderSection(heads) {
 }
 
 function renderLeftAside() {
-  const mainContainerEl = document.querySelector(".left-aside");
-
-  const leftAsideEl = document.createElement("aside");
-  leftAsideEl.className = "left-aside";
-  mainContainerEl.append(leftAsideEl);
+  const leftAsideEl = document.querySelector(".left-aside")
 
   const h2El = document.createElement("h2");
   h2El.innerText = "Filter By";
@@ -110,12 +106,8 @@ function renderLeftAside() {
 renderLeftAside();
 
 function renderListOfExpedition(planets) {
-  const mainContainerEl = document.querySelector(".center-section");
+  const mainEl = document.querySelector(".center-section");
   // console.log("Inside main: ", mainContainerEl)
-
-  const mainEl = document.createElement("main");
-  mainEl.className = "center-section";
-  mainContainerEl.append(mainEl);
 
   const listEl = document.createElement("ul");
   // listEl.className = "responsive-grid"
@@ -163,16 +155,6 @@ function renderListOfExpedition(planets) {
   }
 }
 
-function renderRightAside() {
-  const mainContainerEl = document.querySelector(".right-aside");
-
-  const rightAsideEl = document.createElement("aside");
-  rightAsideEl.className = "right-aside";
-  mainContainerEl.append(rightAsideEl);
-}
-renderRightAside();
-
-
 function renderForm(){
   const mainContainerEl = document.querySelector(".right-aside");
 
@@ -204,10 +186,10 @@ selectEl.id =  "number-of-travelers";
     const numberOfTicketsValue = selectEl.value;
     const dateTimeValue = inputEl.value;
 
-   const eId = stateData.expedition
+  //  const eId = stateData.expedition
 
     const bookingToCreate = {
-      expeditionId: eId.id,
+      expeditionId: stateData.expedition.id,
       dateTime: dateTimeValue,
       numberOfTickets: numberOfTicketsValue
     };
@@ -222,17 +204,14 @@ selectEl.id =  "number-of-travelers";
 const url = "http://localhost:3000/bookings"
     fetch(url, fetchOptions)
       .then((res) => res.json())
-      .then((newBooking) => {
-        console.log("Inside POST Fetch: ", newBooking);
+      .then((bookings) => {
+        console.log("Inside POST Fetch: ", bookings);
         stateData = {
           ...stateData,
-          bookings: newBooking
+          booking: bookings
         };
-
-        // renderCart(newBooking);
+        renderCart(bookings);
       });
-
-    renderCart();
   })
 
   const defaultOptionEl = document.createElement("option");
@@ -264,35 +243,35 @@ mainContainerEl.append(formEl);
 
 
 function renderCart() { 
-const containerDivEl = document.querySelector(".main-section")
-const rightAsideEl = containerDivEl.querySelector(".right-side")
-
-console.log(rightAsideEl);
+const mainContainerEl = document.querySelector(".right-aside");
+console.log("Inside renderCart: ", stateData.expedition);
+  console.log("Inside renderCart Two: ", stateData.booking);
 
 const cartContainerEl = document.createElement("div")
 cartContainerEl.id = "cart"
 cartContainerEl.className = "cart-styling"
-rightAsideEl.append(cartContainerEl);
+  mainContainerEl.append(cartContainerEl);
 
 const cartContainerTitleEl = document.createElement("h2")
 cartContainerTitleEl.innerText = "My Items"
 
+
 const price = stateData.expedition.price;
-const dateTime = stateData.bookings.dateTime;
-const numberOfTickets = stateData.bookings.numberOfTickets;
+const dateTime = stateData.booking.dateTime;
+const tickets = stateData.booking.numberOfTickets;
+console.log(tickets);
 
 const priceEl =  document.createElement("p");
 priceEl.innerText = `Price per ticket: ${price}`
 cartContainerEl.append(priceEl);
 
 const dateEl = document.createElement("p");
-dateEl.innerText = `Date/Time ${dateTime}`
+dateEl.innerText = `Date/Time: ${dateTime}`
 cartContainerEl.append(dateEl);
 
 const finalPriceEl = document.createElement("p");
-  finalPriceEl.innerText = "Final price:";
-  //${price * numberOfTickets}
-  cartContainerEl.append(finalPriceEl);
+finalPriceEl.innerText = `Final price: ${tickets}`;
+cartContainerEl.append(finalPriceEl);
 
 const buttonChangeEl = document.createElement("button");
 buttonChangeEl.innerText = "Change Booking";
@@ -300,6 +279,7 @@ buttonChangeEl.innerText = "Change Booking";
 const buttonDeleteEl = document.createElement("button");
 buttonDeleteEl.innerText = "Delete Booking";
 
+cartContainerEl.append(buttonChangeEl , buttonDeleteEl);
 
 // Change date / Time. (Patch)
 // Cancel purchase(delete)
