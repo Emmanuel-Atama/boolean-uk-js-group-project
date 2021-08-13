@@ -16,17 +16,9 @@ function fetchListSection() {
         ...stateData,
         expedition: expeditions
       };
-<<<<<<< HEAD
       renderHeaderSection(expeditions);
       renderListOfExpedition(expeditions);
       renderCart()
-=======
-    
-    //  console.log( stateData.expedition);
-      renderHeaderSection(stateData.expedition);
-      renderListOfExpedition(stateData.expedition);
-
->>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
     });
 }
 fetchListSection();
@@ -141,21 +133,11 @@ function renderLeftAside() {
 renderLeftAside();
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
 function renderListOfExpedition(planets) {
 
   const mainEl = document.querySelector(".center-section");
   // console.log("Inside main: ", mainContainerEl)
-<<<<<<< HEAD
 mainEl.innerHTML = "";
-=======
-
-  mainEl.innerHTML = "";
-
->>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
   const listEl = document.createElement("ul");
 
   // listEl.className = "responsive-grid"
