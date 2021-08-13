@@ -159,6 +159,7 @@ function renderForm(){
   const mainContainerEl = document.querySelector(".right-aside");
 
   const formEl =  document.createElement("form");
+  formEl.className = "right-side-form-styling"
   const labelEl = document.createElement("label");
   labelEl.innerText = "Pick A Date & Time";
   const inputEl = document.createElement("input");
@@ -186,10 +187,18 @@ selectEl.id =  "number-of-travelers";
     const numberOfTicketsValue = selectEl.value;
     const dateTimeValue = inputEl.value;
 
-  //  const eId = stateData.expedition
+console.log("Inside expeditions: ", stateData.expedition[0].id)
+
+    for (let i = 0; i < stateData.expedition; i++) {
+      const exp = stateData.expedition[i].id
+console.log("inside the expedtion: ", exp)
+
+      const  expeditionIdNumber = exp.id
+      console.log("expeditionIdNumber: ", expeditionIdNumber)
+    }
 
     const bookingToCreate = {
-      expeditionId: stateData.expedition.id,
+    // expedtionId: expeditionIdNumber,
       dateTime: dateTimeValue,
       numberOfTickets: numberOfTicketsValue
     };
@@ -261,13 +270,13 @@ const dateTime = stateData.booking.dateTime;
 const tickets = stateData.booking.numberOfTickets;
 console.log(tickets);
 
-const priceEl =  document.createElement("p");
-priceEl.innerText = `Price per ticket: ${price}`
-cartContainerEl.append(priceEl);
-
 const dateEl = document.createElement("p");
 dateEl.innerText = `Date/Time: ${dateTime}`
 cartContainerEl.append(dateEl);
+
+const priceEl =  document.createElement("p");
+priceEl.innerText = `Price per ticket: ${price}`
+cartContainerEl.append(priceEl);
 
 const finalPriceEl = document.createElement("p");
 finalPriceEl.innerText = `Final price: ${tickets}`;
