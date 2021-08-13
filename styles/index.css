@@ -13,9 +13,9 @@ body {
   gap: 8px;
 }
 
-.three-column-grid {
+.four-column-grid {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   padding-top: 0.5rem;
 }
 

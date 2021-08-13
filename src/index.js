@@ -3,7 +3,6 @@ let stateData = {
   filters: {
     type: "",
     price: null,
-    number: null
   }
 };
 
@@ -17,9 +16,17 @@ function fetchListSection() {
         ...stateData,
         expedition: expeditions
       };
+<<<<<<< HEAD
       renderHeaderSection(expeditions);
       renderListOfExpedition(expeditions);
       renderCart()
+=======
+    
+    //  console.log( stateData.expedition);
+      renderHeaderSection(stateData.expedition);
+      renderListOfExpedition(stateData.expedition);
+
+>>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
     });
 }
 fetchListSection();
@@ -134,13 +141,25 @@ function renderLeftAside() {
 renderLeftAside();
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
 function renderListOfExpedition(planets) {
+
   const mainEl = document.querySelector(".center-section");
   // console.log("Inside main: ", mainContainerEl)
+<<<<<<< HEAD
 mainEl.innerHTML = "";
+=======
+
+  mainEl.innerHTML = "";
+
+>>>>>>> 8a4d8e676e6283502d9cd85a1283d9550abebd2f
   const listEl = document.createElement("ul");
+
   // listEl.className = "responsive-grid"
+
   mainEl.append(listEl);
   for (let i = 0; i < planets.length; i++) {
     const planet = planets[i];
@@ -149,7 +168,7 @@ mainEl.innerHTML = "";
 
     listEl.append(listItemEl);
 
-    const imageSrc = planet.src;
+    // const imageSrc = planet.src;
 
     const listImageEl = document.createElement("img");
     listImageEl.setAttribute("width", "100%");
@@ -158,7 +177,7 @@ mainEl.innerHTML = "";
     listItemEl.append(listImageEl);
 
     const listItemContainerEl = document.createElement("div");
-    listItemContainerEl.className = "three-column-grid";
+    listItemContainerEl.className = "four-column-grid";
     listItemEl.append(listItemContainerEl);
 
     const listTitleEl = document.createElement("h3");
@@ -166,8 +185,12 @@ mainEl.innerHTML = "";
     listItemContainerEl.append(listTitleEl);
 
     const listParagraphEl = document.createElement("p");
-    listParagraphEl.innerText = `Price: ${planet.price}`;
+    listParagraphEl.innerText = `${planet.price}$`;
     listItemContainerEl.append(listParagraphEl);
+
+    const typeEl = document.createElement("p");
+    typeEl.innerText = `${planet.type}`;
+    listItemContainerEl.append(typeEl);
 
     const listButtonEl = document.createElement("button");
     listButtonEl.innerText = "Book Now";
