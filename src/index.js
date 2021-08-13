@@ -19,6 +19,7 @@ function fetchListSection() {
       };
       renderHeaderSection(expeditions);
       renderListOfExpedition(expeditions);
+      renderCart()
     });
 }
 fetchListSection();
@@ -62,7 +63,6 @@ function renderHeaderSection(heads) {
     listItemEL.append(linkEl);
   }
 }
-
 function renderLeftAside() {
   const leftAsideEl = document.querySelector(".left-aside")
 
@@ -80,35 +80,65 @@ function renderLeftAside() {
   filterFormEl.append(filterLabelEl);
 
   const filterh3El = document.createElement("h3");
-  filterh3El.innerText = "Type of Planet & Price";
+  filterh3El.innerText = "Select the type of your trip";
   filterLabelEl.append(filterh3El);
 
   const filterSelectEl = document.createElement("select");
   filterSelectEl.name = "filter-by-type";
   filterSelectEl.id = "filter-by-type";
+ 
+  //AddEventListener
+
+  filterSelectEl.addEventListener("change", (event) => {
+    const filteredValue = event.target.value;
+
+    stateData = {
+      ...stateData,
+      filters: {
+        ...stateData.filters,
+        type: filteredValue
+
+      }
+    };
+
+    const filterbyType = stateData.filters.type;
+    let filteredByType = stateData.expedition;
+
+    filteredByType = stateData.expedition.filter(
+      (expedition) => expedition["type"] === filterbyType
+    );
+
+    console.log(filteredByType);
+    renderListOfExpedition(filteredByType);
+
+  });
+
   filterFormEl.append(filterSelectEl);
+
 
   const optionEl1 = document.createElement("option");
   optionEl1.value = "";
-  optionEl1.innerText = "Select a type...";
+  optionEl1.innerText = "Select type";
   filterSelectEl.append(optionEl1);
 
   const optionEl2 = document.createElement("option");
-  optionEl2.value = "type";
-  optionEl2.innerText = "Type";
+  optionEl2.value = "Terrestrial";
+    optionEl2.innerText = "Terrestrial";
   filterSelectEl.append(optionEl2);
 
   const optionEl3 = document.createElement("option");
-  optionEl3.value = "price";
-  optionEl3.innerText = "Price";
+  optionEl3.value = "Extraterrestrial";
+  optionEl3.innerText = "Extraterrestrial";
   filterSelectEl.append(optionEl3);
 }
 renderLeftAside();
 
+
+
 function renderListOfExpedition(planets) {
   const mainEl = document.querySelector(".center-section");
   // console.log("Inside main: ", mainContainerEl)
-
+mainEl.innerHTML = "";
   const listEl = document.createElement("ul");
   // listEl.className = "responsive-grid"
   mainEl.append(listEl);
@@ -250,7 +280,6 @@ formEl.append(labelEl, inputEl, selectLabelEl, selectEl, buttonEl);
 mainContainerEl.append(formEl);
 }
 
-
 function renderCart() { 
 const mainContainerEl = document.querySelector(".right-aside");
 console.log("Inside renderCart: ", stateData.expedition);
@@ -266,6 +295,8 @@ cartContainerTitleEl.innerText = "My Items"
 
 
 const price = stateData.expedition.price;
+console.log("price per ticket: ", price)
+
 const dateTime = stateData.booking.dateTime;
 const tickets = stateData.booking.numberOfTickets;
 console.log(tickets);
@@ -275,7 +306,7 @@ dateEl.innerText = `Date/Time: ${dateTime}`
 cartContainerEl.append(dateEl);
 
 const priceEl =  document.createElement("p");
-priceEl.innerText = `Price per ticket: ${price}`
+priceEl.innerText = `Price Per Ticket: ${price}`
 cartContainerEl.append(priceEl);
 
 const finalPriceEl = document.createElement("p");
@@ -284,12 +315,24 @@ cartContainerEl.append(finalPriceEl);
 
 const buttonChangeEl = document.createElement("button");
 buttonChangeEl.innerText = "Change Booking";
+buttonChangeEl.className = "button-style-change"
 
 const buttonDeleteEl = document.createElement("button");
 buttonDeleteEl.innerText = "Delete Booking";
+buttonDeleteEl.className = "button-style-delete"
+
+buttonDeleteEl.addEventListener("click", (event) => {
+console.log("clicked")
+  const fetchOptions = {
+    method: "DELETE"
+  };
+  fetch("http://localhost:3000/bookings/2", fetchOptions);
+
+})
 
 cartContainerEl.append(buttonChangeEl , buttonDeleteEl);
 
-// Change date / Time. (Patch)
-// Cancel purchase(delete)
+
+
 }
+

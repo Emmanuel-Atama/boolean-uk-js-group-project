@@ -83,7 +83,7 @@ nav h3 {
 .grid-container {
   display: grid;
   min-height: 100vh;
-  border: 4px solid orangered;
+  /* border: 4px solid orangered; */
   grid-template-columns: 1fr 2fr 1fr;
   gap: 1rem;
 }
@@ -147,7 +147,7 @@ nav h3 {
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
-    background-color: rgb(113, 214, 30);
+    background-color: rgba(255, 0, 0, 1);
     background-image: linear-gradient(to top left,
                                       rgba(0, 0, 0, .2),
                                       rgba(0, 0, 0, .2) 30%,
@@ -157,7 +157,7 @@ nav h3 {
 }
 
 .styled:hover {
-    background-color: rgba(255, 0, 0, 1);
+    background-color: rgb(119, 184, 34);
 }
 
 .styled:active {
@@ -181,4 +181,18 @@ nav h3 {
 .right-side-form-styling input {
   width: auto;
   font-weight: bold;
+}
+.button-style-change {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  color: black;
+  background-color: greenyellow;
+}
+.button-style-delete {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  color: white;
+  background-color: rgb(0, 17, 255);
 }
