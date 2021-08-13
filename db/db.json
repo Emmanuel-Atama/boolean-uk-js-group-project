@@ -75,6 +75,7 @@
     {
       "id": 1,
       "expeditionId": 1
+<<<<<<< HEAD
     },
     {
       "dateTime": "2021-08-13T16:34",
@@ -375,6 +376,9 @@
       "dateTime": "2021-08-29T13:31",
       "numberOfTickets": "1",
       "id": 61
+=======
+>>>>>>> de90edbae6c8a7640a1fe53f4871038b7c597e49
     }
+    
   ]
 }

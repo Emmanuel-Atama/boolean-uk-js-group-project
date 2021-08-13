@@ -112,7 +112,6 @@ nav h3 {
 
   border-radius: 0.25rem 0.25rem 0 0;
   border: 1px solid #000;
-  border-bottom: none;
 }
 
 .filters-section h3 {
@@ -133,7 +132,6 @@ nav h3 {
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   border: 1px solid #000;
-  border-bottom: none;
 }
 
 #filter-by-type-form label {
@@ -149,7 +147,7 @@ nav h3 {
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);
+    background-color: rgb(113, 214, 30);
     background-image: linear-gradient(to top left,
                                       rgba(0, 0, 0, .2),
                                       rgba(0, 0, 0, .2) 30%,
@@ -169,4 +167,18 @@ nav h3 {
 
 .list-space{
   padding-top: 2rem;
+}
+.right-side-form-styling {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  border: 1px solid #000;
+}
+.right-side-form-styling label {
+  font-weight: bold;
+}
+.right-side-form-styling input {
+  width: auto;
+  font-weight: bold;
 }
